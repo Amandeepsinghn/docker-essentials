@@ -5,6 +5,6 @@ app = FastAPI()
 
 
 @app.get("/add")
-def run_task(x: int, y: int):
+def run_task(x: int, y: int) -> dict:
     task = add.delay(x, y)
     return {"task_id": task.id, "status": "Task submitted"}
